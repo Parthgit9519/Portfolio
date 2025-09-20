@@ -3,6 +3,26 @@ import { FaExternalLinkAlt, FaGithub, FaSearch, FaFilter } from "react-icons/fa"
 
 const projectsData = [
    {
+      title: "Quick Code Review (AI Web App)",
+      description:
+         "AI-powered review generator that helps users get concise, intelligent summaries and feedback in real time.",
+      liveLink: "https://quick-code-review.vercel.app/",
+      repoLink: "https://github.com/Deepak-thakur-321/Quick-Code-Review ",
+      category: "AI Web App",
+      tech: ["React", "Tailwind", "Node.js", "Express", "MongoDB", "Gemini API"],
+      year: 2025,
+   },
+   {
+      title: "Job Application Tracker",
+      description:
+         "A simple tracker to manage job applications with filters, statuses, and progress tracking.",
+      liveLink: "https://job-application-tracker-virid.vercel.app/",
+      repoLink: "https://github.com/Deepak-thakur-321/Job-Application-Tracker",
+      category: "Productivity Tool",
+      tech: ["React", "Tailwind", "LocalStorage / MongoDB"],
+      year: 2025,
+   },
+   {
       title: "E‑commerce Platform",
       description:
          "Full‑stack style front‑end with product gallery, filters, cart, and checkout flow. Focus on performance and accessibility.",
@@ -16,7 +36,7 @@ const projectsData = [
       title: "Expense Tracker",
       description:
          "Track expenses by category with charts, persistent storage, and monthly insights.",
-      liveLink: "https://your-expense-tracker-link.com",
+      liveLink: "https://expense-tracker-pied-nu.vercel.app/",
       repoLink: "https://github.com/Deepak-thakur-321/expense-tracker",
       category: "Web App",
       tech: ["React", "LocalStorage", "Charts"],
@@ -66,7 +86,7 @@ const projectsData = [
       title: "Task Tracker",
       description:
          "Create, complete, and filter tasks by due date and status; responsive and snappy UI.",
-      liveLink: "https://your-task-tracker.com",
+      liveLink: "https://task-tracker-mu-gold.vercel.app/",
       repoLink: "https://github.com/Deepak-thakur-321/task-tracker",
       category: "Web App",
       tech: ["React", "TailwindCSS"],
@@ -86,7 +106,7 @@ const projectsData = [
       title: "Flutter Landing Page",
       description:
          "Product landing promoting a Flutter app with features grid and CTA sections.",
-      liveLink: "https://your-flutter-landing-page.com",
+      liveLink: "https://flutter-landing-page-phi.vercel.app/",
       repoLink: "https://github.com/Deepak-thakur-321/Flutter-landing-page",
       category: "Landing Page",
       tech: ["React", "TailwindCSS"],
@@ -112,6 +132,8 @@ const projectsData = [
       tech: ["React", "LocalStorage"],
       year: 2024,
    },
+
+
 ];
 
 const categories = ["All", "Web App", "Landing Page", "Browser Extension"];
@@ -203,19 +225,20 @@ const Projects = () => {
 
                {/* Sort */}
                <div className="col-span-12 lg:col-span-2 flex justify-start lg:justify-end">
-                  <div className="flex items-center gap-2 border border-slate-200 bg-white px-3 py-2 rounded-xl shadow-sm">
-                     <FaFilter className="opacity-70" />
+                  <div className="flex items-center gap-2 border border-slate-300/60 bg-white px-3 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                     <FaFilter className="text-slate-500" />
                      <select
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value)}
-                        className="bg-transparent outline-none text-slate-700"
+                        className="bg-transparent outline-none text-slate-700 font-medium cursor-pointer focus:text-slate-900"
                      >
-                        <option>Newest</option>
-                        <option>Oldest</option>
-                        <option>A‑Z</option>
+                        <option value="newest">Newest</option>
+                        <option value="oldest">Oldest</option>
+                        <option value="az">A-Z</option>
                      </select>
                   </div>
                </div>
+
             </div>
 
             {/* Grid */}

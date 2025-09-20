@@ -11,6 +11,8 @@ import {
    FaNpm,
    FaLaptopCode,
    FaBootstrap,
+   FaDocker,
+   FaLock,
 } from "react-icons/fa";
 import {
    SiMongodb,
@@ -21,6 +23,7 @@ import {
    SiNextdotjs,
    SiFirebase,
    SiTypescript,
+   SiApollographql,
 } from "react-icons/si";
 
 // Skills Data
@@ -44,7 +47,10 @@ const skillsData = [
       skills: [
          { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
          { name: "Express.js", icon: <SiExpress className="text-gray-300" /> },
-         { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
+         { name: "MongoDB", icon: <SiMongodb className="text-green-700" /> },
+         { name: "REST APIs", icon: <SiApollographql className="text-purple-500" /> },
+         { name: "JWT Authentication", icon: <FaLock className="text-gray-700" /> },
+         { name: "Docker", icon: <FaDocker className="text-blue-400" /> },
       ],
    },
    {
@@ -61,7 +67,6 @@ const skillsData = [
          { name: "NPM", icon: <FaNpm className="text-red-500" /> },
          { name: "VS Code", icon: <FaLaptopCode className="text-blue-400" /> },
          { name: "ChatGPT", icon: <SiOpenai className="text-emerald-400" /> },
-         { name: "Problem Solving", icon: <FaLaptopCode className="text-purple-400" /> },
       ],
    },
 ];
