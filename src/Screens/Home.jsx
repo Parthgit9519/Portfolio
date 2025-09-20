@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom"; // fixed react-router import
 import {
   FaLinkedin,
   FaGithub,
