@@ -32,15 +32,15 @@ const Contact = () => {
                <div className="space-y-4">
                   <div className="flex items-center gap-3">
                      <FaEnvelope className="text-blue-500 text-xl" />
-                     <span>your.email@example.com</span>
+                     <span>deepakthakur17756@gmail.com</span>
                   </div>
                   <div className="flex items-center gap-3">
                      <FaPhoneAlt className="text-green-500 text-xl" />
-                     <span>+91 9876543210</span>
+                     <span>+91 8375919101</span>
                   </div>
                   <div className="flex items-center gap-3">
                      <FaMapMarkerAlt className="text-red-500 text-xl" />
-                     <span>India</span>
+                     <span>New Delhi</span>
                   </div>
                </div>
             </div>

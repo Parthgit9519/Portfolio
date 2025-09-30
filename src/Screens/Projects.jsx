@@ -13,6 +13,16 @@ const projectsData = [
       year: 2025,
    },
    {
+      title: "Perplexity (AI Web App)",
+      description:
+         "AI-powered platform that provides clear, real-time summaries and actionable feedback with a modern MERN stack architecture.",
+      liveLink: "https://perplexity-clone-nu.vercel.app/",
+      repoLink: "https://github.com/Deepak-thakur-321/Perplexity-Clone",
+      category: "AI Web App",
+      tech: ["React", "Tailwind", "Node.js", "Express", "MongoDB", "Gemini API"],
+      year: 2025,
+   },
+   {
       title: "Job Application Tracker",
       description:
          "A simple tracker to manage job applications with filters, statuses, and progress tracking.",
@@ -96,7 +106,7 @@ const projectsData = [
       title: "Bookmark Extension",
       description:
          "Chrome extension to save and organize links with tags and quick search.",
-      liveLink: "https://your-bookmark-extension.com",
+      liveLink: "https://bookmark-extension-eight.vercel.app/",
       repoLink: "https://github.com/Deepak-thakur-321/bookmark-extension",
       category: "Browser Extension",
       tech: ["JavaScript", "Chrome APIs"],

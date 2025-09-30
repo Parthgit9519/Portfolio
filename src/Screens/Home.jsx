@@ -72,13 +72,15 @@ const Hero = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden text-white" >
       {/* Fade-in Effect */}
-      < div className={`relative z-10 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+      < div className={`relative z-10 transition-all duration-1000`}>
 
         <div className="absolute inset-0 bg-[radial-gradient(#fff,transparent_1px)] bg-[length:25px_25px] opacity-30"></div>
 
-        
+
         {/* Hero Section */}
-        < section className="min-h-screen flex flex-col justify-center items-center px-6 text-center" >
+        < section className="min-h-screen mt-10 lg:mt-0 flex flex-col justify-center items-center px-6 text-center" style={{
+          animation: "slideUp 0.8s ease-out forwards",
+        }} >
           {/* Main Heading */}
           < h1 className="text-4xl md:text-6xl font-bold mb-6 leading-snug tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500" >
             Hi, I’m Deepak Thakur
@@ -108,33 +110,6 @@ const Hero = () => {
             to make an impact.
           </p >
 
-          {/* CTA Buttons */}
-          {/* <div className="flex flex-wrap gap-4 justify-center mb-12">
-                  <NavLink
-                     to="/projects"
-                     className="group bg-gradient-to-r from-[#2563eb] to-[#7c3aed] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
-                  >
-                     <FaRocket className="group-hover:animate-bounce" />
-                     View My Work
-                  </NavLink>
-
-                  <NavLink
-                     to="/contact"
-                     className="bg-transparent border-2 border-blue-400 text-blue-300 px-8 py-3 rounded-full font-bold hover:bg-blue-500/20 hover:text-white transition-all duration-300 shadow-lg transform hover:scale-105 flex items-center gap-2"
-                  >
-                     <FaUser />
-                     Get In Touch
-                  </NavLink>
-
-                  <a
-                     href="/resume.pdf"
-                     download
-                     className="bg-gradient-to-r from-gray-800 to-gray-900 text-white px-8 py-3 rounded-full font-bold hover:from-gray-700 hover:to-gray-800 transition-all duration-300 shadow-lg transform hover:scale-105 flex items-center gap-2"
-                  >
-                     <FaDownload />
-                     Download CV
-                  </a>
-               </div> */}
 
           {/* Social Links */}
           <div className="flex gap-4 mb-12">
@@ -148,7 +123,7 @@ const Hero = () => {
             </a>
 
             <a
-              href="https://linkedin.com/in/your-profile"
+              href="https://www.linkedin.com/in/deepakthakur22/"
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-white/10 backdrop-blur-md p-4 rounded-full shadow-lg hover:shadow-xl border border-gray-700 hover:border-blue-400 transition-all duration-300 transform hover:scale-110"
@@ -157,7 +132,7 @@ const Hero = () => {
             </a>
 
             <a
-              href="https://twitter.com/your-handle"
+              href="https://x.com/DeepakThakur738"
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-white/10 backdrop-blur-md p-4 rounded-full shadow-lg hover:shadow-xl border border-gray-700 hover:border-sky-400 transition-all duration-300 transform hover:scale-110"
