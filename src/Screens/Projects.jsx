@@ -415,7 +415,7 @@ const Projects = () => {
   return (
     <div className="w-full min-h-screen  justify-center items-center flex">
 
-      <h1 className="text-6xl font-bold text-blue-400">The page is under Development...😉 </h1>
+      <h1 className="lg:text-6xl text-4xl font-bold lg:ml-0 ml-7 text-blue-400">The page is under Development...😉 </h1>
     </div>
   );
 };
