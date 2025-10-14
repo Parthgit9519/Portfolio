@@ -19,9 +19,12 @@ const Navbar = () => {
          <div className="container mx-auto px-4 flex items-center justify-between h-16">
 
             {/* Logo */}
-            <NavLink to="/" className="text-2xl font-bold tracking-wide text-blue-600">
-               MyPortfolio
-            </NavLink>
+              {/* Logo with Gradient - Changed to a standard anchor tag */}
+                <a href="#home" className="flex items-center">
+                    <span className="text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-700 to-pink-600 transition-all duration-300 hover:opacity-80">
+                        it's me...
+                    </span>
+                </a>
 
             {/* Desktop Menu */}
             <ul className="hidden md:flex space-x-8">
@@ -82,3 +85,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+   

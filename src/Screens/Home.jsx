@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 import {
   FaLinkedin,
   FaGithub,
@@ -6,18 +8,14 @@ import {
   FaCode,
   FaReact,
   FaNodeJs,
-  FaDatabase,
-  FaMobile,
-  FaRocket,
   FaLaptopCode,
   FaChevronDown,
   FaDownload,
-  FaExternalLinkAlt,
-  FaUser,
+  FaEnvelope,
   FaGraduationCap,
   FaCoffee,
   FaBrain,
-  FaUsers
+  FaUsers,
 } from "react-icons/fa";
 import {
   SiJavascript,
@@ -25,31 +23,24 @@ import {
   SiMongodb,
   SiExpress,
   SiNextdotjs,
-  SiTypescript,
-  SiPython,
-  SiOpenai
+  SiOpenai,
 } from "react-icons/si";
 
+// Animation variants for Framer Motion
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, duration: 0.5 },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.6 } },
+};
+
 const Hero = () => {
-  const [currentRole, setCurrentRole] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-
-  const roles = [
-    "Front-End Developer",
-    "MERN Stack Developer",
-    "Full-Stack Developer",
-    "React Specialist"
-  ];
-
-  useEffect(() => {
-    setIsVisible(true);
-    const roleInterval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 3000);
-
-    return () => clearInterval(roleInterval);
-  }, []);
-
   const skills = [
     { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
     { name: "React.js", icon: FaReact, color: "text-cyan-400" },
@@ -58,112 +49,136 @@ const Hero = () => {
     { name: "Express.js", icon: SiExpress, color: "text-gray-800" },
     { name: "TailwindCSS", icon: SiTailwindcss, color: "text-cyan-400" },
     { name: "Next.js", icon: SiNextdotjs, color: "text-gray-900" },
-    { name: "AI Integration", icon: SiOpenai, color: "text-blue-600" }
+    { name: "AI Integration", icon: SiOpenai, color: "text-blue-600" },
   ];
 
   const stats = [
     { number: "10+", label: "Practical Projects", icon: FaCode },
-    { number: "1", label: "Year of Hands-on Experience", icon: FaLaptopCode },
-    { number: "5+", label: "Collaborations & Team Projects", icon: FaUsers },
-    { number: "Ongoing", label: "Continuous Learning & Growth", icon: FaBrain }
+    { number: "1+", label: "Year of Experience", icon: FaLaptopCode },
+    { number: "5+", label: "Team Collaborations", icon: FaUsers },
+    { number: "∞", label: "Passion for Learning", icon: FaBrain },
   ];
 
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden text-white" >
-      {/* Fade-in Effect */}
-      < div className={`relative z-10 transition-all duration-1000`}>
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden text-white">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#fff,transparent_1px)] bg-[length:25px_25px] opacity-20"></div>
 
-        <div className="absolute inset-0 bg-[radial-gradient(#fff,transparent_1px)] bg-[length:25px_25px] opacity-30"></div>
-
-
+      <div className="relative z-10">
         {/* Hero Section */}
-        < section className="min-h-screen mt-10 lg:mt-0 flex flex-col justify-center items-center px-6 text-center" style={{
-          animation: "slideUp 0.8s ease-out forwards",
-        }} >
+        <motion.section
+          className="min-h-screen mt-12 flex flex-col justify-center items-center px-6 text-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {/* Main Heading */}
-          < h1 className="text-4xl md:text-6xl font-bold mb-6 leading-snug tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500" >
-            Hi, I’m Deepak Thakur
-          </h1 >
+          <motion.h1
+            className="text-4xl md:text-6xl font-bold    leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500"
+            variants={itemVariants}
+          >
+             Parth Gupta
+          </motion.h1>
 
-          {/* Dynamic Role */}
-          < div className="h-16 mb-6" >
-            <p className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300">
-              {roles[currentRole]}
-            </p>
-          </div >
+          {/* Dynamic Role with Typing Animation */}
+          <motion.div className="h-16 mb-6" variants={itemVariants}>
+            <TypeAnimation
+              sequence={[
+                "A Front-End Developer",
+                2000,
+                "A MERN Stack Developer",
+                2000,
+                "A Full-Stack Developer",
+                2000,
+                "A React Specialist",
+                2000,
+              ]}
+              wrapper="p"
+              speed={50}
+              className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300"
+              repeat={Infinity}
+            />
+          </motion.div>
 
           {/* Description */}
-          < p className="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto mb-8 leading-relaxed" >
-            I'm a passionate developer who creates{" "}
-            < span className="font-bold text-blue-300" >
-              modern, scalable web applications
-            </span > {" "}
-            that solve real - world problems.With expertise in {" "}
-            < span className="font-semibold text-purple-300" > MERN stack</span >, I
-            build < span className="italic" > pixel - perfect interfaces</span > and{" "}
-            <span className="font-semibold">robust backend systems</span>.
-            Currently seeking{" "}
-            <span className="font-bold text-indigo-300">
-              Full-Stack opportunities
-            </span>{" "}
-            to make an impact.
-          </p >
-
+          <motion.p
+            className="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto mb-8 leading-relaxed"
+            variants={itemVariants}
+          >
+            I transform ideas into high-performance web applications. With a passion for the{" "}
+            <span className="font-semibold text-purple-300">MERN stack</span>, I build{" "}
+            <span className="italic">pixel-perfect interfaces</span> and{" "}
+            <span className="font-semibold">robust, scalable backend systems</span>. Currently seeking impactful{" "}
+            <span className="font-bold text-indigo-300">Full-Stack opportunities</span>.
+          </motion.p>
 
           {/* Social Links */}
-          <div className="flex gap-4 mb-12">
+          <motion.div className="flex gap-4 mb-12" variants={itemVariants}>
             <a
-              href="https://github.com/Deepak-thakur-321"
+              href="https://github.com/Parthgit9519" // Placeholder
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-white/10 backdrop-blur-md p-4 rounded-full shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-300 transition-all duration-300 transform hover:scale-110"
             >
-              <FaGithub className="text-2xl text-white group-hover:text-gray-200" />
+              <FaGithub className="text-2xl text-white group-hover:text-blue-400" />
             </a>
-
             <a
-              href="https://www.linkedin.com/in/deepakthakur22/"
+              href="https://www.linkedin.com/in/parth-gupta-816b35226/" // Placeholder
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-white/10 backdrop-blur-md p-4 rounded-full shadow-lg hover:shadow-xl border border-gray-700 hover:border-blue-400 transition-all duration-300 transform hover:scale-110"
             >
               <FaLinkedin className="text-2xl text-white group-hover:text-blue-400" />
             </a>
-
             <a
-              href="https://x.com/DeepakThakur738"
+              href="https://twitter.com/parth-gupta" // Placeholder
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-white/10 backdrop-blur-md p-4 rounded-full shadow-lg hover:shadow-xl border border-gray-700 hover:border-sky-400 transition-all duration-300 transform hover:scale-110"
             >
               <FaTwitter className="text-2xl text-white group-hover:text-sky-400" />
             </a>
-          </div>
+          </motion.div>
 
           {/* Scroll Indicator */}
-          <div className="animate-bounce">
+          <motion.div
+            className="absolute bottom-10"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
             <FaChevronDown className="text-3xl text-gray-300" />
-          </div>
-        </section >
+          </motion.div>
+        </motion.section>
 
         {/* Skills Section */}
-        < section className="py-20 px-6 bg-gradient-to-br from-[#f9fafb] to-[#f3f4f6] text-gray-900" >
+        <motion.section
+          className="py-20 px-6 bg-gradient-to-br from-[#f9fafb] to-[#f3f4f6] text-gray-900"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
               My Tech Stack
             </h2>
             <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
-              I work with cutting-edge technologies to build modern, scalable
-              applications
+              A curated collection of tools I use to build modern and beautiful applications.
             </p>
 
             {/* Skills Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
-              {skills.map((skill, index) => (
-                <div
+            <motion.div
+              className="grid grid-cols-2 md:grid-cols-4 gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              {skills.map((skill) => (
+                <motion.div
                   key={skill.name}
                   className="group bg-white/80 backdrop-blur-lg p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-2xl border border-gray-200 hover:border-blue-300 transition-all duration-300 transform hover:-translate-y-2"
+                  variants={itemVariants}
                 >
                   <skill.icon
                     className={`text-4xl ${skill.color} mb-4 group-hover:scale-110 transition-transform duration-300`}
@@ -171,26 +186,27 @@ const Hero = () => {
                   <h3 className="font-bold text-gray-800 text-lg">
                     {skill.name}
                   </h3>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
-        </section >
+        </motion.section>
 
         {/* Stats Section */}
-        < section className="py-20 px-6 bg-gradient-to-r from-[#4f46e5] via-[#7c3aed] to-[#2563eb]" >
+        <motion.section
+          className="py-20 px-6 bg-gradient-to-r from-[#4f46e5] via-[#7c3aed] to-[#2563eb]"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16">
-              My Journey in{" "}
-              <span className="text-yellow-300">Numbers</span>
+              My Journey <span className="text-yellow-300">By The Numbers</span>
             </h2>
-
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div
-                  key={stat.label}
-                  className="text-center text-white"
-                >
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center text-white">
                   <stat.icon className="text-5xl mb-4 mx-auto opacity-90" />
                   <h3 className="text-4xl md:text-5xl font-bold mb-2">
                     {stat.number}
@@ -200,115 +216,44 @@ const Hero = () => {
               ))}
             </div>
           </div>
-        </section >
-
-        {/* About Preview */}
-        < section className="py-20 px-6 bg-gradient-to-br from-[#f9fafb] to-[#f3f4f6] text-gray-900" >
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
-                  More About Me
-                </h2>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  I'm a self-taught developer with a passion for creating
-                  digital experiences that matter. When I'm not coding, you'll
-                  find me exploring new technologies, contributing to
-                  open-source projects, or sharing knowledge with the developer
-                  community.
-                </p>
-
-                <div className="grid grid-cols-2 gap-6 mb-8">
-                  <div className="flex items-center gap-3">
-                    <FaGraduationCap className="text-2xl text-blue-600" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Education</h4>
-                      <p className="text-gray-600">Computer Science</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <FaCoffee className="text-2xl text-orange-600" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Fuel</h4>
-                      <p className="text-gray-600">Coffee & Code</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* <NavLink
-                           to="/about"
-                           className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-colors duration-300"
-                        >
-                           Learn More About Me
-                           <FaExternalLinkAlt />
-                        </NavLink> */}
-              </div>
-
-              <div className="relative">
-                <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-8 rounded-2xl shadow-2xl">
-                  <div className="bg-white rounded-xl p-6">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                      Quick Facts
-                    </h3>
-                    <ul className="space-y-3 text-gray-600">
-                      <li className="flex items-center gap-2">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                        Based in India · Collaborating Remotely
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                        Focused on MERN Stack Development
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                        Built 10+ Practical Projects (Frontend & Fullstack)
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-                        Currently Exploring AI Integration with Web Apps
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section >
-
-        {/* CTA Section */}
-        < section className="py-20 px-6 bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white" >
+        </motion.section>
+        
+        {/* Call to Action Section */}
+        <motion.section
+          className="py-20 px-6 bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Build Something{" "}
-              <span className="text-blue-400">Amazing</span>?
+              Ready to Build Something <span className="text-blue-400">Amazing</span>?
             </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              I'm always excited to work on new projects and collaborate with
-              amazing people. Let's create something extraordinary together!
+              I'm always excited to collaborate on new projects. Let's create something extraordinary together!
             </p>
-
-            {/* <div className="flex flex-wrap gap-4 justify-center">
-                     <NavLink
-                        to="/contact"
-                        className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-bold transition-colors duration-300 flex items-center gap-2 transform hover:scale-105"
-                     >
-                        <FaRocket />
-                        Start a Project
-                     </NavLink>
-
-                     <NavLink
-                        to="/projects"
-                        className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full font-bold transition-all duration-300 flex items-center gap-2 transform hover:scale-105"
-                     >
-                        <FaCode />
-                        View Portfolio
-                     </NavLink>
-                  </div> */}
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a
+                href="mailto:your.email@example.com"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-bold transition-colors duration-300 flex items-center gap-2 transform hover:scale-105"
+              >
+                <FaEnvelope />
+                Get in Touch
+              </a>
+              <a
+                href="/path-to-your-cv.pdf" // Add link to your CV
+                download
+                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full font-bold transition-all duration-300 flex items-center gap-2 transform hover:scale-105"
+              >
+                <FaDownload />
+                Download CV
+              </a>
+            </div>
           </div>
-        </section >
-      </div >
-    </div >
+        </motion.section>
+      </div>
+    </div>
   );
 };
 
