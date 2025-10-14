@@ -1,75 +1,50 @@
-import React from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router'
-import Home from './Screens/Home'
-import Navbar from './Components/Navbar'
-import About from './Screens/About'
-import Contact from './Screens/Contact'
-import Education from './Screens/Education'
-import Projects from './Screens/Projects'
-import Skills from './Screens/Skills'
-
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './Screens/Home';
+import About from './Screens/About';
+import Contact from './Screens/Contact';
+import Education from './Screens/Education';
+import Projects from './Screens/Projects';
+import Skills from './Screens/Skills';
+import Layout from './Layout'; // 👈 Import your new Layout component
 
 const App = () => {
-
-  let router = createBrowserRouter([
+  const router = createBrowserRouter([
     {
+      // Parent Route: This defines the shared layout
       path: "/",
-      element:
-        <div>
-          <Navbar></Navbar>
-          <Home></Home>
-        </div>
+      element: <Layout />, 
+      children: [
+        // Child Routes: These will be rendered inside the <Outlet>
+        {
+          index: true, // 👈 'index: true' makes this the default child route for "/"
+          element: <Home />,
+        },
+        {
+          path: "about", // No leading slash needed
+          element: <About />,
+        },
+        {
+          path: "contact",
+          element: <Contact />,
+        },
+        {
+          path: "education",
+          element: <Education />,
+        },
+        {
+          path: "projects",
+          element: <Projects />,
+        },
+        {
+          path: "skills",
+          element: <Skills />,
+        },
+      ],
     },
+  ]);
 
-    {
-      path: "/about",
-      element:
-        <div>
-          <Navbar></Navbar>
-          <About></About>
-        </div>
-    },
-    {
-      path: "/contact",
-      element:
-        <div>
-          <Navbar></Navbar>
-          <Contact></Contact>
-        </div>
-    },
+  return <RouterProvider router={router} />;
+};
 
-    {
-      path: "/education",
-      element:
-        <div>
-          <Navbar></Navbar>
-          <Education></Education>
-        </div>
-    },
-    {
-      path: "/projects",
-      element:
-        <div>
-          <Navbar></Navbar>
-          <Projects></Projects>
-        </div>
-    },
-    {
-      path: "/skills",
-      element:
-        <div>
-          <Navbar></Navbar>
-          <Skills></Skills>
-        </div>
-    },
-  ])
-
-  return (
-    <div>
-
-      <RouterProvider router={router}></RouterProvider>
-    </div>
-  )
-}
-
-export default App
+export default App;

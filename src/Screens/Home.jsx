@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import { Link } from "react-router-dom";
 import {
   FaLinkedin,
   FaGithub,
@@ -77,7 +78,7 @@ const Hero = () => {
             className="text-4xl md:text-6xl font-bold    leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500"
             variants={itemVariants}
           >
-             Parth Gupta
+            Parth Gupta
           </motion.h1>
 
           {/* Dynamic Role with Typing Animation */}
@@ -105,11 +106,18 @@ const Hero = () => {
             className="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto mb-8 leading-relaxed"
             variants={itemVariants}
           >
-            I transform ideas into high-performance web applications. With a passion for the{" "}
-            <span className="font-semibold text-purple-300">MERN stack</span>, I build{" "}
-            <span className="italic">pixel-perfect interfaces</span> and{" "}
-            <span className="font-semibold">robust, scalable backend systems</span>. Currently seeking impactful{" "}
-            <span className="font-bold text-indigo-300">Full-Stack opportunities</span>.
+            I transform ideas into high-performance web applications. With a
+            passion for the{" "}
+            <span className="font-semibold text-purple-300">MERN stack</span>, I
+            build <span className="italic">pixel-perfect interfaces</span> and{" "}
+            <span className="font-semibold">
+              robust, scalable backend systems
+            </span>
+            . Currently seeking impactful{" "}
+            <span className="font-bold text-indigo-300">
+              Full-Stack opportunities
+            </span>
+            .
           </motion.p>
 
           {/* Social Links */}
@@ -163,7 +171,8 @@ const Hero = () => {
               My Tech Stack
             </h2>
             <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
-              A curated collection of tools I use to build modern and beautiful applications.
+              A curated collection of tools I use to build modern and beautiful
+              applications.
             </p>
 
             {/* Skills Grid */}
@@ -217,7 +226,7 @@ const Hero = () => {
             </div>
           </div>
         </motion.section>
-        
+
         {/* Call to Action Section */}
         <motion.section
           className="py-20 px-6 bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white"
@@ -228,26 +237,29 @@ const Hero = () => {
         >
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Build Something <span className="text-blue-400">Amazing</span>?
+              Ready to Build Something{" "}
+              <span className="text-blue-400">Amazing</span>?
             </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              I'm always excited to collaborate on new projects. Let's create something extraordinary together!
+              I'm always excited to collaborate on new projects. Let's create
+              something extraordinary together!
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a
-                href="mailto:your.email@example.com"
+              <Link
+                to="/contact" // Changed from href to 'to', pointing to your contact route
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-bold transition-colors duration-300 flex items-center gap-2 transform hover:scale-105"
               >
                 <FaEnvelope />
                 Get in Touch
-              </a>
+              </Link>
               <a
-                href="/path-to-your-cv.pdf" // Add link to your CV
-                download
-                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full font-bold transition-all duration-300 flex items-center gap-2 transform hover:scale-105"
+                href="/resume/parthguptaresume.pdf" // Your correct resume path
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-bold transition-colors duration-300 flex items-center gap-2 transform hover:scale-105"
               >
                 <FaDownload />
-                Download CV
+                View CV
               </a>
             </div>
           </div>
