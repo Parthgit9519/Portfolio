@@ -142,6 +142,15 @@ const projectsData = [
     category: "Web App",
     tech: ["React", "LocalStorage"],
     year: 2024,
+  },{
+    title: "Admin-Dashboard",
+    description:
+      "administration-dashboard for admins ",
+    liveLink: "https://admin-dashboard-rho-three-18.vercel.app/",
+    repoLink: "https://github.com/Parthgit9519/Admin-Dashboard.git",
+    category: "Web App",
+    tech: ["React", "LocalStorage"],
+    year: 2024,
   },
 ];
 
