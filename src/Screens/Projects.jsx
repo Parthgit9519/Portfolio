@@ -79,12 +79,22 @@ const projectsData = [
     year: 2025,
   },
   {
+    title: "Weather App",
+    description:
+      "Interactive Weather app with live weather reports.",
+    liveLink: "https://weather-app-five-chi-98.vercel.app/",
+    repoLink: "https://github.com/Parthgit9519/Weather-App.git",
+    category: "WEB APP",
+    tech: ["React", "TailwindCSS", "GSAP"],
+    year: 2025,
+  },
+  {
     title: "Youtube Clone",
     description:
       "A responsive YouTube clone featuring a dynamic video feed, search functionality, and API integration.",
     liveLink: "https://youtube-clone-blush-nine.vercel.app/",
     repoLink: "https://github.com/Parthgit9519/Youtube-Clone.git",
-    category: "Landing Page",
+    category: "WEB APP",
     tech: ["React", "YouTube v3 API", "react-player", "TailwindCSS"],
     year: 2024,
   },
