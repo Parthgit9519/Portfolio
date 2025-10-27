@@ -80,8 +80,7 @@ const projectsData = [
   },
   {
     title: "Weather App",
-    description:
-      "Interactive Weather app with live weather reports.",
+    description: "Interactive Weather app with live weather reports.",
     liveLink: "https://weather-app-five-chi-98.vercel.app/",
     repoLink: "https://github.com/Parthgit9519/Weather-App.git",
     category: "WEB APP",
