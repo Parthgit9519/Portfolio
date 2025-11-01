@@ -190,7 +190,7 @@ const Projects = () => {
         (p) =>
           p.title.toLowerCase().includes(q) ||
           p.description.toLowerCase().includes(q) ||
-          (p.tech?.join(" ").toLowerCase().includes(q) ?? false)
+          (p.tech?.join("").toLowerCase().includes(q) ?? false)
       );
     }
 
