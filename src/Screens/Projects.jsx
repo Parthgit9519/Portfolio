@@ -101,7 +101,7 @@ const projectsData = [
     title: "Netflix Clone",
     description:
       "A streaming platform clone using React and the TMDB (The Movie Database) API to fetch and display movie/show categories.",
-    liveLink: "https://youtube-clone-blush-nine.vercel.app/",
+    liveLink: "https://netflix-clone-five-smoky-99.vercel.app/",
     repoLink: "https://github.com/Parthgit9519/Youtube-Clone.git",
     category: "Landing Page",
     tech: [
@@ -194,9 +194,11 @@ const Projects = () => {
       );
     }
 
+
     if (category !== "All") {
       list = list.filter((p) => p.category === category);
     }
+
 
     if (sortBy === "Newest")
       list.sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
